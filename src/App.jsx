@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import "./App.css";
 import { getUnsplashAPI } from "./api/api-unsplash.js";
 import SearchBar from "./components/SearchBar/SearchBar";
+import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn.jsx";
 
 function App() {
   // const [data, setData] = useState([]);
@@ -21,6 +22,7 @@ function App() {
   return (
     <>
       <SearchBar />
+      <LoadMoreBtn />
     </>
   );
 }

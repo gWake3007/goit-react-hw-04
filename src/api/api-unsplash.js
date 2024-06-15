@@ -10,7 +10,7 @@ const unsplashAPI = axios.create({
 });
 
 export const getUnsplashAPI = async (serchQuery, page) => {
-  const { data } = await unsplashAPI.get("/search/photos/", {
+  const { data } = await unsplashAPI.get("/search/photos", {
     params: {
       query: serchQuery,
       per_page: 12,
