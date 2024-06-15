@@ -17,6 +17,6 @@ export const getUnsplashAPI = async (serchQuery, page) => {
       page,
     },
   });
-  console.log(data);
+  console.log(data.results);
   return data.results;
 };
