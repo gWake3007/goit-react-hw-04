@@ -40,7 +40,7 @@ const App = () => {
     <>
       <SearchBar onSubmit={submitForm} />
       <ImageGallery list={data} />
-      <LoadMoreBtn handleLoadMore={handleLoadMore} />
+      {data.length > 0 && <LoadMoreBtn handleLoadMore={handleLoadMore} />}
     </>
   );
 };
