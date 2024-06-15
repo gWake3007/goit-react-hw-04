@@ -7,18 +7,18 @@ const SearchBar = () => {
   return (
     <header className={css.header}>
       <form className={css.form}>
-        <label htmlFor={inputId}></label>
-        <div className={css.container}>
+        <label htmlFor={inputId} className={css.container}>
           <input
+            className={css.input}
             type="text"
             name="searchInput"
             id={inputId}
             placeholder="Search images and photos"
           />
           <button className={css.btn} type="submit">
-            <PiMagnifyingGlassDuotone />
+            <PiMagnifyingGlassDuotone className={css.svg} />
           </button>
-        </div>
+        </label>
       </form>
     </header>
   );
