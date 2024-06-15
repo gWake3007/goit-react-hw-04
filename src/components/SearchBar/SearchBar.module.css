@@ -6,7 +6,7 @@
   border-radius: 15px;
 }
 
-.container {
+.form {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
