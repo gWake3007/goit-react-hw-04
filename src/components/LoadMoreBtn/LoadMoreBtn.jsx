@@ -4,7 +4,7 @@ const LoadMoreBtn = ({ handleLoadMore }) => {
   return (
     <div className={css.container}>
       <button onClick={handleLoadMore} className={css.loadMoreBtn}>
-        LoadMoreBtn
+        LoadMore
       </button>
     </div>
   );
