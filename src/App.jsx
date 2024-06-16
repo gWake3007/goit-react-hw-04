@@ -6,6 +6,7 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn.jsx";
 import ImageGallery from "./components/ImageGallery/ImageGallery.jsx";
 import Loader from "./components/Loader/Loader.jsx";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage.jsx";
+import ImageModal from "./components/ImageModal/ImageModal.jsx";
 
 const App = () => {
   const [error, setError] = useState(false);
@@ -13,6 +14,7 @@ const App = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const setDataResp = useCallback(async () => {
     try {
@@ -42,13 +44,41 @@ const App = () => {
   const handleLoadMore = () => {
     setPage(page + 1);
   };
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
+    overlay: {
+      backgroundColor: "rgba(0, 0, 0, 0.75)",
+    },
+  };
   return (
     <>
       <SearchBar onSubmit={submitForm} />
       {error && <ErrorMessage />}
-      <ImageGallery list={data} />
+      <ImageGallery list={data} onImageClick={openModal} />
       {loading && <Loader />}
       {data.length > 0 && <LoadMoreBtn handleLoadMore={handleLoadMore} />}
+      <ImageModal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        image={modalIsOpen}
+      />
     </>
   );
 };

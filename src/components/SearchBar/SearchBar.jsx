@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { PiMagnifyingGlassDuotone } from "react-icons/pi";
 import css from "./SearchBar.module.css";
 
@@ -6,7 +7,10 @@ const SearchBar = ({ onSubmit }) => {
   const [input, setInput] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(input);
+    if (input.trim() === "") {
+      toast.error("Please enter to search word!");
+    }
+    onSubmit(input.toLowerCase());
   };
   return (
     <header className={css.header}>
@@ -25,6 +29,7 @@ const SearchBar = ({ onSubmit }) => {
           <PiMagnifyingGlassDuotone className={css.svg} />
         </button>
       </form>
+      <Toaster position="bottom-center" />
     </header>
   );
 };
