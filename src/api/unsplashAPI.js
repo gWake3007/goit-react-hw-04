@@ -15,6 +15,5 @@ export const unsplashAPI = async (searchQuery, page) => {
       Authorization: `Client-ID ${ACCESS_KEY}`,
     },
   });
-  console.log(data.results);
   return data.results;
 };
