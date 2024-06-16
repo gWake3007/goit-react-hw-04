@@ -14,7 +14,7 @@ const App = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(null);
 
   const setDataResp = useCallback(async () => {
     try {
@@ -45,13 +45,13 @@ const App = () => {
     setPage(page + 1);
   };
 
-  function closeModal() {
-    setIsOpen(false);
-  }
+  const closeModal = () => {
+    setIsOpen(null);
+  };
 
-  function openModal() {
-    setIsOpen(true);
-  }
+  const openModal = (data) => {
+    setIsOpen(data);
+  };
 
   return (
     <>
@@ -61,9 +61,9 @@ const App = () => {
       {loading && <Loader />}
       {data.length > 0 && <LoadMoreBtn handleLoadMore={handleLoadMore} />}
       <ImageModal
-        isOpen={modalIsOpen}
+        isOpen={Boolean(modalIsOpen)}
         onRequestClose={closeModal}
-        image={modalIsOpen}
+        item={modalIsOpen}
       />
     </>
   );

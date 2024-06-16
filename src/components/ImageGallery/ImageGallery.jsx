@@ -1,4 +1,5 @@
 import css from "./ImageGallery.module.css";
+import PropTypes from "prop-types";
 import ImageCard from "../ImageCard/ImageCard";
 
 const ImageGallery = ({ list, onImageClick }) => (
@@ -10,5 +11,14 @@ const ImageGallery = ({ list, onImageClick }) => (
     ))}
   </ul>
 );
+
+ImageGallery.propTypes = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  onImageClick: PropTypes.func.isRequired,
+};
 
 export default ImageGallery;

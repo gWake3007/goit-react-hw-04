@@ -1,4 +1,5 @@
 import css from "./ImageCard.module.css";
+import PropTypes from "prop-types";
 
 const ImageCard = ({ item, onImageClick }) => {
   return (
@@ -11,6 +12,16 @@ const ImageCard = ({ item, onImageClick }) => {
       />
     </div>
   );
+};
+
+ImageCard.propTypes = {
+  item: PropTypes.shape({
+    urls: PropTypes.shape({
+      small: PropTypes.string.isRequired,
+    }).isRequired,
+    alt_description: PropTypes.string,
+  }).isRequired,
+  onImageClick: PropTypes.func.isRequired,
 };
 
 export default ImageCard;
