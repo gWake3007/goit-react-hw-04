@@ -29,7 +29,7 @@ const SearchBar = ({ onSubmit }) => {
           <PiMagnifyingGlassDuotone className={css.svg} />
         </button>
       </form>
-      <Toaster position="bottom-center" />
+      <Toaster position="top-center" />
     </header>
   );
 };
